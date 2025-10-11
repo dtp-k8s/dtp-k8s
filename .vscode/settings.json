@@ -1,10 +1,4 @@
 {
-    "files.associations": {
-        "*.env": "properties"
-    },
-    "vs-kubernetes": {
-        "disable-linters": ["resource-limits"]
-    },
     "[yaml]": {
         "editor.tabSize": 2
     },
@@ -14,5 +8,6 @@
     },
     "editor.rulers": [
         100
-    ]
+    ],
+    "markdownlint.configFile": "./configs/.markdownlint.yaml"
 }

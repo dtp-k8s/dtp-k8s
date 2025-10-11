@@ -1,0 +1,9 @@
+name: PostgreSQL
+summary: PostgreSQL relational database
+type: data-store
+chart:
+  name: bitnami/postgresql
+  ref: https://artifacthub.io/packages/helm/bitnami/postgresql
+services:
+- name: postgres-postgresql
+  urls: []

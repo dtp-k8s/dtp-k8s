@@ -1,0 +1,51 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ required "Missing fullnameOverride" .Values.fullnameOverride }}-config
+data:
+  # Apache configuration file for phpPgAdmin
+  phppgadmin.conf: |-
+    Alias /phppgadmin /usr/share/phppgadmin
+    <Directory /usr/share/phppgadmin>
+        Options Indexes FollowSymLinks
+        AllowOverride None
+        Require all granted
+    </Directory>
+    RedirectMatch ^/$ /phppgadmin
+  config.inc.php: |-
+    <?php
+      /* Servers configuration */
+      $conf['servers'][0]['desc'] = 'PostgreSQL';
+      $conf['servers'][0]['host'] = 'postgres-postgresql';
+      $conf['servers'][0]['port'] = 5432;
+      $conf['servers'][0]['ssl'] = false;
+      $conf['use_xhtml_strict'] = false;
+
+      $conf['extra_session_security'] = true;
+      $conf['extra_login_security'] = false;
+      $conf['min_password_length'] = 1;
+
+      $conf['servers'][0]['sslmode'] = 'allow';
+      $conf['servers'][0]['defaultdb'] = 'template1';
+
+      $conf['default_lang'] = 'auto';
+      $conf['autocomplete'] = 'default on';
+      $conf['owned_only'] = false;
+      $conf['show_comments'] = true;
+      $conf['show_advanced'] = false;
+      $conf['show_system'] = false;
+      $conf['show_oids'] = false;
+      $conf['help_base'] = 'http://www.postgresql.org/docs/%s/interactive/';
+      $conf['plugins'] = array();
+
+      $conf['left_width'] = 200;
+      $conf['theme'] = 'default';
+      $conf['max_rows'] = 30;
+      $conf['max_chars'] = 50;
+      $conf['ajax_refresh'] = 3;
+
+      $conf['plugins'] = array();
+
+      /* Don't modify anything below this line */
+      $conf['version'] = 19;
+    ?>

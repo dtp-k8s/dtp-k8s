@@ -1,0 +1,18 @@
+{
+    "files.associations": {
+        "*.env": "properties"
+    },
+    "vs-kubernetes": {
+        "disable-linters": ["resource-limits"]
+    },
+    "[yaml]": {
+        "editor.tabSize": 2
+    },
+    "[markdown]": {
+        "editor.wordWrap": "bounded",
+        "editor.wordWrapColumn": 100
+    },
+    "editor.rulers": [
+        100
+    ]
+}

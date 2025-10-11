@@ -1,0 +1,9 @@
+fullNameOverride: postgres
+
+# WARNING: The PostgreSQL chart only uses these values during the initial installation.
+# To change the password after installation, use `psql` or a similar tool to update it directly.
+# The Kubernetes secret thus might not reflect the actual password in use.
+auth:
+  database: dtp
+  username: dtp
+  existingSecret: postgres-config

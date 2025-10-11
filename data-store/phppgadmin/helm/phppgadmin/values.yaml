@@ -1,0 +1,10 @@
+# Default values for phppgadmin.
+
+# Base name for the Helm release.  All resources will be prefixed with this name.
+fullnameOverride: "phppgadmin"
+image:
+  repository: "yinchi/phppgadmin"
+  tag: "latest"
+  pullPolicy: "Always"
+ports:
+  http: 80

@@ -1,0 +1,11 @@
+name: Traefik
+summary: Traefik reverse proxy
+type: infrastructure
+chart:
+  name: traefik/traefik
+  ref: https://github.com/traefik/traefik-helm-chart
+services:
+- name: traefik
+  urls:
+  - address: http://traefik.localhost/dashboard/
+    description: Traefik dashboard

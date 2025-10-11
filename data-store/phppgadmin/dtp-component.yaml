@@ -1,0 +1,10 @@
+name: PhpPgAdmin
+summary: PhpPgAdmin web interface for PostgreSQL
+type: data-store
+extra-types:
+- ui
+services:
+- name: phppgadmin
+  urls:
+  - address: http://phppgadmin.localhost/phppgadmin/
+    description: PhpPgAdmin web interface

@@ -1,0 +1,7 @@
+fullnameOverride: "phppgadmin"
+image:
+  repository: "yinchi/phppgadmin"
+  tag: "latest"
+  pullPolicy: "Always"
+ports:
+  http: 80

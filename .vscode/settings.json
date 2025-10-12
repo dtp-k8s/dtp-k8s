@@ -1,13 +1,3 @@
 {
-    "[yaml]": {
-        "editor.tabSize": 2
-    },
-    "[markdown]": {
-        "editor.wordWrap": "bounded",
-        "editor.wordWrapColumn": 100
-    },
-    "editor.rulers": [
-        100
-    ],
     "markdownlint.configFile": "./configs/.markdownlint.yaml"
 }

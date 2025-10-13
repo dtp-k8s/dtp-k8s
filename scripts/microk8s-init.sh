@@ -11,15 +11,6 @@ pgrep -af 'kubectl port-forward' | grep -viE "screen" | awk '{print $1}' | xargs
 
 ############################################################################################
 
-### DASHBOARD ###
-
-# Forward K8s dashboard to localhost:8443, kill existing sessions first
-echo "🛠️  Forwarding Kubernetes Dashboard to https://localhost:8443 ..."
-screen -dmS k8s-pf-dashboard kubectl port-forward -n kube-system svc/kubernetes-dashboard 8443:443
-echo ""
-
-############################################################################################
-
 # List install scripts to run here.  Each script should:
 # - Check if the service is already installed, and skip if so.
 # - Install the service if not already installed (`helm upgrade --install`).

@@ -38,4 +38,5 @@ echo ""
 echo "🛠️  Forwarding Traefik to http://localhost:80 ..."
 screen -dmS k8s-pf-traefik kubectl port-forward -n traefik svc/traefik 80:web
 # screen -dmS k8s-pf-traefik kubectl port-forward -n traefik svc/traefik 443:websecure
+echo "✅  Port-forward established."
 echo ""

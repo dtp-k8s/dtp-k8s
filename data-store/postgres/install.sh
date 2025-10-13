@@ -37,4 +37,5 @@ echo ""
 
 echo "🛠️  Forwarding PostgreSQL service to http://localhost:5432 ..."
 screen -dmS k8s-pf-postgres kubectl port-forward -n default svc/postgres-postgresql 5432:tcp-postgresql
+echo "✅  Port-forward established."
 echo ""

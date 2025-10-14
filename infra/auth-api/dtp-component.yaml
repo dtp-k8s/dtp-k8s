@@ -1,0 +1,10 @@
+name: Auth API
+summary: Authentication API
+type: infra
+extra-types:
+- api
+services:
+- name: phppgadmin
+  urls:
+  - address: http://localhost/api/auth/
+    description: Authentication API

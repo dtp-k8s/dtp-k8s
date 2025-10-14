@@ -1,0 +1,5 @@
+# See the chart's values.yaml for all configurable parameters and their default values.
+fullnameOverride: "auth-api"
+image:
+  tag: "latest"
+pathPrefix: "/api/auth"

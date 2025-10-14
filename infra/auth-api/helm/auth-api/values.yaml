@@ -1,0 +1,20 @@
+# Default values for auth-api.
+
+# Base name for the Helm release.  All resources will be prefixed with this name.
+fullnameOverride: "auth-api"
+
+# Docker image settings
+image:
+  repository: "yinchi/dtp-auth"
+  tag: "latest"
+  pullPolicy: "Always"
+
+# The port that the auth-api container listens on, also used to expose the Service
+ports:
+  http: 8000
+
+# The URL path prefix where the auth-api will be accessible (e.g., /api/auth)
+pathPrefix: "/api/auth"
+
+# Name of the Kubernetes Secret that contains environment variables for the auth-api container
+secretName: "auth-api-config"

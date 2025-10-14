@@ -1,7 +1,4 @@
+# See the chart's values.yaml for all configurable parameters and their default values.
 fullnameOverride: "phppgadmin"
 image:
-  repository: "yinchi/phppgadmin"
   tag: "latest"
-  pullPolicy: "Always"
-ports:
-  http: 80

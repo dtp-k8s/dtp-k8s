@@ -24,7 +24,7 @@ spec:
           image: "{{ required "Missing image.repository" (.Values.image).repository }}:{{ required "Missing image.tag" (.Values.image).tag }}"
           imagePullPolicy: {{ required "Missing image.pullPolicy" (.Values.image).pullPolicy }}
           ports:
-            - containerPort: 80
+            - containerPort: {{ required "Missing ports.http" (.Values.ports).http }}
           # Use ConfigMap to configure phpPgAdmin and Apache
           # See: https://kubernetes.io/docs/concepts/configuration/configmap/#using-configmaps-as-files-from-a-pod
           volumeMounts:

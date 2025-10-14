@@ -2,9 +2,13 @@
 
 # Base name for the Helm release.  All resources will be prefixed with this name.
 fullnameOverride: "phppgadmin"
+
+# Docker image settings
 image:
   repository: "yinchi/phppgadmin"
   tag: "latest"
   pullPolicy: "Always"
+
+# The port that the phppgadmin container listens on, also used to expose the Service
 ports:
   http: 80

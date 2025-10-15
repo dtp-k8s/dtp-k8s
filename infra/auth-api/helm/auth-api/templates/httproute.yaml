@@ -26,6 +26,11 @@ spec:
         group: traefik.io
         kind: Middleware
         name: {{ required "Missing fullnameOverride" .Values.fullnameOverride }}-stripprefix
+    - type: ExtensionRef
+      extensionRef:
+        group: traefik.io
+        kind: Middleware
+        name: cors-header  # Use the name of your CORS middleware here
 ---
 # Middleware to strip the /api/auth-api prefix
 apiVersion: traefik.io/v1alpha1

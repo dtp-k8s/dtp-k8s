@@ -1,0 +1,23 @@
+apiVersion: traefik.io/v1alpha1
+kind: Middleware
+metadata:
+  name: {{ .Values.fullnameOverride }}
+spec:
+  headers:
+    accessControlAllowMethods:
+      # https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Methods
+      - "GET"
+      - "HEAD"
+      - "POST"
+      - "PUT"
+      - "DELETE"
+      - "OPTIONS"
+      - "PATCH"
+    accessControlAllowHeaders:
+      - "*"
+    accessControlAllowOriginList:
+      {{- range .Values.cors.allowedOrigins }}
+      - {{ . | quote }}
+      {{- end }}
+    accessControlMaxAge: 100
+    addVaryHeader: true

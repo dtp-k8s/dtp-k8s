@@ -7,3 +7,9 @@ auth:
   database: dtp
   username: dtp
   existingSecret: postgres-config
+
+primary:
+  service:
+    type: NodePort
+    nodePorts:
+      postgresql: 30432

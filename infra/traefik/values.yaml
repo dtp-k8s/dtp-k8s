@@ -4,17 +4,28 @@
 deployment:
   kind: DaemonSet
 
-# For local microk8s, use ClusterIP and forward the ports manually
-# For cloud environments, consider using LoadBalancer
 service:
-  type: ClusterIP
+  type: NodePort
+
+ports:
+  web:
+    nodePort: 30080
+  traefik:
+    nodePort: 30081
+    expose:
+      default: true
+  # Disable the secure port as we don't have TLS set up yet
+  websecure:
+    nodePort: 30443
+    expose:
+      default: false
 
 ingressRoute:
   dashboard:
     enabled: true
-    matchRule: Host(`traefik.localhost`) && (PathPrefix(`/api`) || PathPrefix(`/dashboard`))
+    matchRule: (PathPrefix(`/api`) || PathPrefix(`/dashboard`))
     entryPoints:
-    - web
+    - traefik
 
 providers:
   kubernetesIngress:

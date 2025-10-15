@@ -9,6 +9,9 @@ spec:
       namespace: traefik
   hostnames:
     - localhost
+    {{- range .Values.extraHostnames }}
+    - {{ . | quote }}
+    {{- end }}
   rules:
   - backendRefs:
     - name: {{ required "Missing fullnameOverride" .Values.fullnameOverride }}

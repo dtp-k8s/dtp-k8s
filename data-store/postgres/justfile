@@ -1,4 +1,4 @@
 # Connect to PostgreSQL database using pgcli
 pgcli:
     #!/usr/bin/env bash
-    pgcli -h localhost -p 5432 -U dtp -d dtp
+    pgcli -h localhost -p 30432 -U dtp -d dtp

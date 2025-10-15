@@ -2,3 +2,10 @@
 fullnameOverride: "phppgadmin"
 image:
   tag: "latest"
+
+service:
+  type: NodePort
+
+ports:
+  http:
+    nodePort: 30100

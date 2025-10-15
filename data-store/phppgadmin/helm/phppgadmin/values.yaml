@@ -9,6 +9,13 @@ image:
   tag: "latest"
   pullPolicy: "Always"
 
+# Service settings
+service:
+  type: NodePort
+
 # The port that the phppgadmin container listens on, also used to expose the Service
 ports:
-  http: 80
+  http:
+    containerPort: 80
+    servicePort: 80
+    nodePort: 30080

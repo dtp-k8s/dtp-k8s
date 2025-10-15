@@ -24,20 +24,10 @@ dashboard:
     #!/usr/bin/env bash
     microk8s dashboard-proxy
 
-# List all active kubectl port-forwards
-port-forwards:
+# List all NodePort services in the cluster
+list-nodeports:
     #!/usr/bin/env bash
-    ps ax | grep -vi "grep" | grep SCREEN | grep --color=auto "k8s-pf-"
-
-# Refresh all kubectl port-forwards
-refresh-port-forwards:
-    #!/usr/bin/env bash
-    echo "🗑️  Clearing existing port-forward sessions (if any)..."
-    pgrep -af 'kubectl port-forward' | grep -viE "screen" | awk '{print $1}' | xargs -r kill -9 || true
-    echo "🛠️  Forwarding Traefik to http://localhost:80 ..."
-    screen -dmS k8s-pf-traefik kubectl port-forward -n traefik svc/traefik 80:web
-    echo "🛠️  Forwarding PostgreSQL service to http://localhost:5432 ..."
-    screen -dmS k8s-pf-postgres kubectl port-forward -n default svc/postgres-postgresql 5432:tcp-postgresql
+    kubecolor get svc -A --field-selector spec.type=NodePort
 
 ######### PRE-COMMIT #########
 

@@ -3,12 +3,15 @@ kind: Service
 metadata:
   name: {{ required "Missing fullnameOverride" .Values.fullnameOverride }}
 spec:
-  type: ClusterIP
+  type: {{ required "Missing service.type" .Values.service.type }}
   selector:
     app.kubernetes.io/name: {{ .Chart.Name }}
     app.kubernetes.io/instance: {{ .Release.Name }}
   ports:
     # For simplicity, make the service port and targetPort the same
     - protocol: TCP
-      port: {{ required "Missing ports.http" (.Values.ports).http }}
-      targetPort: {{ required "Missing ports.http" (.Values.ports).http }}
+      port: {{ required "Missing ports.http" ((.Values.ports).http).servicePort }}
+      targetPort: http
+      {{- if eq .Values.service.type "NodePort" }}
+      nodePort: {{ required "Missing ports.http" ((.Values.ports).http).nodePort }}
+      {{- end }}

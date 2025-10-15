@@ -9,6 +9,11 @@ image:
   tag: "latest"
   pullPolicy: "Always"
 
+extraHostnames:
+- "192.168.1.100" # Local network IP
+- "yinchi-ridge" # Local hostname
+- "yc.ngrok.dev" # Ngrok domain, edit OAuth config in `~/.config/ngrok/ngrok.yml`
+
 # The port that the auth-api container listens on, also used to expose the Service
 ports:
   http: 8000

@@ -4,6 +4,4 @@ fullnameOverride: "cors-header"
 cors:
   # List of allowed origins for CORS
   allowedOrigins:
-  - "http://localhost"
-  - "http://localhost:5173" # Vite default port
-  - "http://localhost:8000" # FastAPI default port
+  - "https://localhost:5173" # Vite default port, but with https (using vite-plugin-mkcert)
